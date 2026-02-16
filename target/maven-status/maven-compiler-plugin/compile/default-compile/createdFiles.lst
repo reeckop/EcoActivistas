@@ -1,6 +1,0 @@
-config\ConexionDB.class
-daos\ClienteDAO.class
-controllers\ClienteController.class
-controllers\IClienteController.class
-daos\IClienteDAO.class
-models\Cliente.class
