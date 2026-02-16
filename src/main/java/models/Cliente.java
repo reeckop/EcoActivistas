@@ -11,7 +11,6 @@ public class Cliente {
     private String telefonos;
 
     public Cliente(int id, String nombre, String direccion, String telefonos) {
-        this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefonos = telefonos;
@@ -49,5 +48,8 @@ public class Cliente {
         this.telefonos = telefonos;
     }
     
-    
+    @Override
+    public String toString() {
+        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", telefonos=" + telefonos + '}';
+    }
 }

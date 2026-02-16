@@ -22,7 +22,7 @@ public class ConexionDB {
             }
             
             props.load(input);
-            url = props.getProperty("b.url");
+            url = props.getProperty("db.url");
             user = props.getProperty("db.user");
             password = props.getProperty("db.password");
             driver = props.getProperty("db.driver");

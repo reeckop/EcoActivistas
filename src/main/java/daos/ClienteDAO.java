@@ -10,7 +10,7 @@ import models.Cliente;
 
 /**
  *
- * @author LABORATORIOS
+ * @author Ricardo
  */
 public class ClienteDAO implements IClienteDAO {
 
@@ -54,21 +54,31 @@ public class ClienteDAO implements IClienteDAO {
             System.out.println("Error al intentar insertar el cliente" + e.getMessage());
         }
     }
-    }
-
-    @Override
-    public List<Cliente> obtenerTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     @Override
     public boolean actualizarCliente(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query = "UPDATE cliente SET nombre=?, direccion=?, telefonos=? WHERE idCliente=?";
+        try (Connection con = ConexionDB.getConnection();
+            PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setString(1, cliente.getNombre());
+            ps.setString(2, cliente.getDireccion());
+            ps.setString(3, cliente.getTelefonos());
+            ps.setInt(4, cliente.getId());
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
     @Override
     public boolean eliminarCliente(int idCliente) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String query = "DELETE FROM cliente WHERE idCliente = ?";
+        try (Connection con = ConexionDB.getConnection();
+            PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setInt(1, idCliente);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            return false;
+        }
     }
-    
 }

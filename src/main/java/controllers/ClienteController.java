@@ -1,7 +1,7 @@
 package controllers;
 
-import daos.IClienteDAO;
 import models.Cliente;
+import daos.IClienteDAO;
 
 /**
  *
