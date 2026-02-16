@@ -4,6 +4,9 @@
  */
 package controllers;
 
+import java.util.List;
+import models.ProblemaActivista;
+
 /**
  *
  * @author omarb
@@ -11,4 +14,12 @@ package controllers;
 public interface IProblemaActivistaController {
     public boolean asignarActivistaAProblema(int idProblema, int idActivista);
     public boolean eliminarRelacion(int idProblema, int idActivista);
+    
+    boolean insertar(ProblemaActivista problemaActivista);
+
+    ProblemaActivista obtenerPorID(int idProblema, int idActivista);
+
+    List<ProblemaActivista> obtenerTodos();
+
+    boolean eliminar(int idProblema, int idActivista);
 }
