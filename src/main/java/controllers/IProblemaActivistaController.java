@@ -9,5 +9,6 @@ package controllers;
  * @author omarb
  */
 public interface IProblemaActivistaController {
-    
+    public boolean asignarActivistaAProblema(int idProblema, int idActivista);
+    public boolean eliminarRelacion(int idProblema, int idActivista);
 }

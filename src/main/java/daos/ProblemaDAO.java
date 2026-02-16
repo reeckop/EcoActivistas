@@ -19,6 +19,11 @@ import models.Problema;
  */
 public class ProblemaDAO implements IProblemaDAO{
 
+    public ProblemaDAO() {
+    }
+    
+    
+    
     @Override
     public boolean insertar(Problema problema) {
         String query = "INSERT INTO problema(fch_ini, fch_fin, estado,idCliente) VALUES(?, ?, ?,?)";
