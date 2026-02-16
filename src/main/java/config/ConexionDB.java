@@ -7,6 +7,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ *
+ * @author Ricardo
+ */
 public class ConexionDB {
     private static String url;
     private static String user;
