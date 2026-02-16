@@ -1,5 +1,6 @@
 package controllers;
 
+import daos.ClienteDAO;
 import models.Cliente;
 import daos.IClienteDAO;
 
@@ -10,6 +11,7 @@ import daos.IClienteDAO;
 public class ClienteController implements IClienteController {
     
     private final IClienteDAO clienteDAO;
+    
     public ClienteController() {
         this.clienteDAO = new ClienteDAO();
     }

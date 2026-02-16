@@ -10,7 +10,16 @@ public class Cliente {
     private String direccion;
     private String telefonos;
 
+    // Puse dos contstructores, este es para la base de datos y el de abajo sin ID es para insertar
     public Cliente(int id, String nombre, String direccion, String telefonos) {
+        this.id = id;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefonos = telefonos;
+    }
+
+    // Constructor para nuevas inserciones (sin ID)
+    public Cliente(String nombre, String direccion, String telefonos) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefonos = telefonos;
