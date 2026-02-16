@@ -52,7 +52,7 @@ public class ActivistaController implements IActivistaController{
         if (activista.getId()<0) {
             return false;
         }
-        return activistaDAO.eliminar(activista.getId());
+        return activistaDAO.actualizar(activista);
     }
 
     @Override

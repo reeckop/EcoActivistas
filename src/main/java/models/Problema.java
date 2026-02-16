@@ -5,6 +5,7 @@
 package models;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -12,15 +13,15 @@ import java.sql.Date;
  */
 public class Problema {
     private int idProblema;
-    private Date fch_inicio;
-    private Date fch_fin;
+    private LocalDate fch_inicio;
+    private LocalDate fch_fin;
     private String estado;
     private int idCliente;
 
     public Problema() {
     }
 
-    public Problema(int idProblema, Date fch_inicio, Date fch_fin, String estado, int idCliente) {
+    public Problema(int idProblema, LocalDate fch_inicio, LocalDate fch_fin, String estado, int idCliente) {
         this.idProblema = idProblema;
         this.fch_inicio = fch_inicio;
         this.fch_fin = fch_fin;
@@ -29,7 +30,7 @@ public class Problema {
     }
 
     /*Constructor sin id*/
-    public Problema(Date fch_inicio, Date fch_fin, String estado, int idCliente) {
+    public Problema(LocalDate fch_inicio, LocalDate fch_fin, String estado, int idCliente) {
         this.fch_inicio = fch_inicio;
         this.fch_fin = fch_fin;
         this.estado = estado;
@@ -44,19 +45,19 @@ public class Problema {
         this.idProblema = idProblema;
     }
 
-    public Date getFch_inicio() {
+    public LocalDate getFch_inicio() {
         return fch_inicio;
     }
 
-    public void setFch_inicio(Date fch_inicio) {
+    public void setFch_inicio(LocalDate fch_inicio) {
         this.fch_inicio = fch_inicio;
     }
 
-    public Date getFch_fin() {
+    public LocalDate getFch_fin() {
         return fch_fin;
     }
 
-    public void setFch_fin(Date fch_fin) {
+    public void setFch_fin(LocalDate fch_fin) {
         this.fch_fin = fch_fin;
     }
 

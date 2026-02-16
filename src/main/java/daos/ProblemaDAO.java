@@ -6,6 +6,7 @@ package daos;
 
 import config.ConexionDB;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,8 +32,8 @@ public class ProblemaDAO implements IProblemaDAO{
         try (Connection con = ConexionDB.getConnection();
              PreparedStatement ps = con.prepareStatement(query)) {
             
-            ps.setDate(1, problema.getFch_inicio());
-            ps.setDate(2, problema.getFch_fin());
+            ps.setDate(1, java.sql.Date.valueOf(problema.getFch_inicio()));
+            ps.setDate(2, java.sql.Date.valueOf(problema.getFch_fin()));
             ps.setString(3, problema.getEstado());
             ps.setInt(4, problema.getIdCliente());
             
@@ -55,10 +56,13 @@ public class ProblemaDAO implements IProblemaDAO{
             
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
+                    Date fechaIniSQL = rs.getDate("fch_ini");
+                    Date fechaFinSQL = rs.getDate("fch_fin");
+                    
                     return new Problema(
                         rs.getInt("idProblema"),
-                        rs.getDate("fch_ini"),
-                        rs.getDate("fch_fin"),
+                        fechaIniSQL != null ? fechaIniSQL.toLocalDate() : null,
+                        fechaFinSQL != null ? fechaFinSQL.toLocalDate() : null,
                         rs.getString("estado"),
                         rs.getInt("idCliente")
                     );
@@ -80,10 +84,12 @@ public class ProblemaDAO implements IProblemaDAO{
              ResultSet rs = ps.executeQuery()) {
             
             while (rs.next()) {
+                Date fechaIniSQL = rs.getDate("fch_ini");
+                Date fechaFinSQL = rs.getDate("fch_fin");
                 problemas.add(new Problema(
                     rs.getInt("idProblema"),
-                    rs.getDate("fch_ini"),
-                    rs.getDate("fch_fin"),
+                    fechaIniSQL != null ? fechaIniSQL.toLocalDate() : null,
+                    fechaFinSQL != null ? fechaFinSQL.toLocalDate() : null,
                     rs.getString("estado"),
                     rs.getInt("idCliente")
                 ));
@@ -101,8 +107,8 @@ public class ProblemaDAO implements IProblemaDAO{
         try (Connection con = ConexionDB.getConnection();
              PreparedStatement ps = con.prepareStatement(query)) {
             
-            ps.setDate(1, problema.getFch_inicio());
-            ps.setDate(2, problema.getFch_fin());
+            ps.setDate(1, java.sql.Date.valueOf(problema.getFch_inicio()));
+            ps.setDate(2, java.sql.Date.valueOf(problema.getFch_fin()));
             ps.setString(3, problema.getEstado());
             ps.setInt(4, problema.getIdCliente());
             ps.setInt(5, problema.getIdProblema());

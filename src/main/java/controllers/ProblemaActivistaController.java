@@ -79,6 +79,8 @@ public class ProblemaActivistaController implements IProblemaActivistaController
         }
         return problemaActivistaDAO.eliminar(idProblema, idActivista);
     }
+    
+    
 }
 
 

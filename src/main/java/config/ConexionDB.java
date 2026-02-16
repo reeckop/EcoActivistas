@@ -31,6 +31,8 @@ public class ConexionDB {
             password = props.getProperty("db.password");
             driver = props.getProperty("db.driver");
             
+            
+            
             Class.forName(driver);
   
         } catch (IOException | ClassNotFoundException e) {
